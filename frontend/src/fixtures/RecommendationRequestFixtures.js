@@ -40,4 +40,4 @@ const RecommendationRequstFixtures = {
 };
 
 
-export { ucsbDatesFixtures };
+export { RecommendationRequstFixtures };
