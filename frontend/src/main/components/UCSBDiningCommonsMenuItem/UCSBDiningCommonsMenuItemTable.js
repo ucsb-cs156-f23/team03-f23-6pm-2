@@ -37,7 +37,7 @@ export default function UCSBDiningCommonsMenuItemTable({
 
         {
             Header: 'Dining Commons Code',
-            accessor: 'dining commons code',
+            accessor: 'diningCommonsCode',
         },
         {
             Header: 'Name',
