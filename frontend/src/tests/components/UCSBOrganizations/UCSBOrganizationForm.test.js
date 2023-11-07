@@ -53,8 +53,8 @@ describe("UCSBOrganizationForm tests", () => {
             expect(header).toBeInTheDocument();
         });
 
-        expect(await screen.findByTestId(`${testId}-orgCode`)).toBeInTheDocument();
-        expect(screen.getByText(`OrgCode`)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-orgTranslationShort`)).toBeInTheDocument();
+        expect(screen.getByText(`OrgTranslationShort`)).toBeInTheDocument();
     });
 
 
