@@ -24,7 +24,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
 
             {initialContents && (
                 <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="orgCode">Id</Form.Label>
+                    <Form.Label htmlFor="orgCode">OrgCode</Form.Label>
                     <Form.Control
                         data-testid={testIdPrefix + "-orgCode"}
                         id="orgCode"

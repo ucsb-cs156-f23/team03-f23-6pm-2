@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 describe("UCSBOrganizationForm tests", () => {
     const queryClient = new QueryClient();
 
-    const expectedHeaders = ["Name", "Description"];
+    const expectedHeaders = ["OrgCode", "OrgTranslationShort", "OrgTranslation","Inactive"];
     const testId = "UCSBOrganizationForm";
 
     test("renders correctly with no initialContents", async () => {
@@ -53,8 +53,8 @@ describe("UCSBOrganizationForm tests", () => {
             expect(header).toBeInTheDocument();
         });
 
-        expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
-        expect(screen.getByText(`Id`)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-orgCode`)).toBeInTheDocument();
+        expect(screen.getByText(`OrgCode`)).toBeInTheDocument();
     });
 
 
@@ -87,10 +87,10 @@ describe("UCSBOrganizationForm tests", () => {
         const submitButton = screen.getByText(/Create/);
         fireEvent.click(submitButton);
 
-        await screen.findByText(/Name is required/);
-        expect(screen.getByText(/Description is required/)).toBeInTheDocument();
+        await screen.findByText(/orgTranslationShort is required/);
+        expect(screen.getByText(/orgTranslation is required/)).toBeInTheDocument();
 
-        const nameInput = screen.getByTestId(`${testId}-name`);
+        const nameInput = screen.getByTestId(`${testId}-orgTranslationShort`);
         fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
         fireEvent.click(submitButton);
 
