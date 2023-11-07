@@ -87,8 +87,8 @@ describe("UCSBOrganizationForm tests", () => {
         const submitButton = screen.getByText(/Create/);
         fireEvent.click(submitButton);
 
-        await screen.findByText(/orgTranslationShort is required/);
-        expect(screen.getByText(/orgTranslation is required/)).toBeInTheDocument();
+        await screen.findByText(/OrgTranslationShort is required/);
+        expect(screen.getByText(/OrgTranslation is required/)).toBeInTheDocument();
 
         const nameInput = screen.getByTestId(`${testId}-orgTranslationShort`);
         fireEvent.change(nameInput, { target: { value: "a".repeat(31) } });
