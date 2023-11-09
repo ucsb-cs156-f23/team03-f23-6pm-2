@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for components/UCSBOrganizations/UCSBOrganizationForm.js</title>
+    <title>Code coverage report for components/UCSBOrganization/UCSBOrganizationForm.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/UCSBOrganizations</a> UCSBOrganizationForm.js</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">components/UCSBOrganization</a> UCSBOrganizationForm.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -30,9 +30,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">80% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/5</span>
+                <span class='fraction'>3/3</span>
             </div>
         
             
@@ -174,16 +174,7 @@
 <a name='L109'></a><a href='#L109'>109</a>
 <a name='L110'></a><a href='#L110'>110</a>
 <a name='L111'></a><a href='#L111'>111</a>
-<a name='L112'></a><a href='#L112'>112</a>
-<a name='L113'></a><a href='#L113'>113</a>
-<a name='L114'></a><a href='#L114'>114</a>
-<a name='L115'></a><a href='#L115'>115</a>
-<a name='L116'></a><a href='#L116'>116</a>
-<a name='L117'></a><a href='#L117'>117</a>
-<a name='L118'></a><a href='#L118'>118</a>
-<a name='L119'></a><a href='#L119'>119</a>
-<a name='L120'></a><a href='#L120'>120</a>
-<a name='L121'></a><a href='#L121'>121</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L112'></a><a href='#L112'>112</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -195,25 +186,16 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">11x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -327,33 +309,33 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
     return (
         &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
 &nbsp;
-            {initialContents &amp;&amp; (
-<span class="branch-1 cbranch-no" title="branch not covered" >                &lt;Form.Group className="mb-3" &gt;</span>
-                    &lt;Form.Label htmlFor="orgCode"&gt;OrgCode&lt;/Form.Label&gt;
-                    &lt;Form.Control
-                        data-testid={testIdPrefix + "-orgCode"}
-                        id="orgCode"
-                        type="text"
-                        {...register("orgCode")}
-                        value={initialContents.id}
-                        disabled
-                    /&gt;
-                &lt;/Form.Group&gt;
-            )}
+            
+            &lt;Form.Group className="mb-3" &gt;
+                &lt;Form.Label htmlFor="orgCode"&gt;orgCode&lt;/Form.Label&gt;
+                &lt;Form.Control
+                    data-testid={testIdPrefix + "-orgCode"}
+                    id="orgCode"
+                    type="text"
+                    isInvalid={Boolean(errors.orgCode)}
+                    {...register("orgCode", {
+                        required: "orgCode is required.",
+                    })}
+                /&gt;
+                &lt;Form.Control.Feedback type="invalid"&gt;
+                    {errors.orgCode?.message}
+                &lt;/Form.Control.Feedback&gt;
+            &lt;/Form.Group&gt;
+&nbsp;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="orgTranslationShort"&gt;OrgTranslationShort&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="orgTranslationShort"&gt;orgTranslationShort&lt;/Form.Label&gt;
                 &lt;Form.Control
                     data-testid={testIdPrefix + "-orgTranslationShort"}
                     id="orgTranslationShort"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslationShort)}
                     {...register("orgTranslationShort", {
-                        required: "OrgTranslationShort is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
+                        required: "orgTranslationShort is required.",
                     })}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
@@ -362,18 +344,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="orgTranslation"&gt;OrgTranslation&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="orgTranslation"&gt;orgTranslation&lt;/Form.Label&gt;
                 &lt;Form.Control
                     data-testid={testIdPrefix + "-orgTranslation"}
                     id="orgTranslation"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslation)}
                     {...register("orgTranslation", {
-                        required: "OrgTranslation is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
+                        required: "orgTranslation is required."
                     })}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
@@ -382,26 +360,21 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="inactive"&gt;Inactive&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="inactive"&gt;inactive&lt;/Form.Label&gt;
                 &lt;Form.Control
                     data-testid={testIdPrefix + "-inactive"}
                     id="inactive"
                     type="text"
                     isInvalid={Boolean(errors.inactive)}
                     {...register("inactive", {
-                        required: "Inactive is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
+                        required: "inactive is required.", pattern: /(true|false)/i
                     })}
                 /&gt;
-&nbsp;
-&nbsp;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.inactive?.message}
+                    {errors.inactive?.message} {'boolean required'}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
+&nbsp;
 &nbsp;
 &nbsp;
             &lt;Button
@@ -430,7 +403,7 @@ export default UCSBOrganizationForm;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Nov 08 2023 17:27:47 GMT-0800 (Pacific Standard Time)
+                at Wed Nov 08 2023 18:25:38 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
