@@ -25,7 +25,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/11</span>
+                <span class='fraction'>0/12</span>
             </div>
         
             
@@ -39,14 +39,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/3</span>
+                <span class='fraction'>0/4</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/10</span>
+                <span class='fraction'>0/11</span>
             </div>
         
             
@@ -120,8 +120,7 @@
 <a name='L55'></a><a href='#L55'>55</a>
 <a name='L56'></a><a href='#L56'>56</a>
 <a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L58'></a><a href='#L58'>58</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -146,26 +145,25 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -187,7 +185,7 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBOrganiz
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 &nbsp;
-export default function <span class="fstat-no" title="function not covered" >UCSBOrganizationTable(</span>{ orgs, currentUser }) {
+export default function <span class="fstat-no" title="function not covered" >UCSBOrganizationTable(</span>{ organizations, currentUser }) {
 &nbsp;
     const navigate = <span class="cstat-no" title="statement not covered" >useNavigate();</span>
 &nbsp;
@@ -202,11 +200,9 @@ export default function <span class="fstat-no" title="function not covered" >UCS
         { onSuccess: onDeleteSuccess },
         ["/api/ucsborganization/all"]
     );
-    // Stryker restore all 
 &nbsp;
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >as</span>ync (cell) =&gt; { <span class="cstat-no" title="statement not covered" >deleteMutation.mutate(cell); </span>}</span>
-&nbsp;
 &nbsp;
     const columns = <span class="cstat-no" title="statement not covered" >[</span>
         {
@@ -214,16 +210,17 @@ export default function <span class="fstat-no" title="function not covered" >UCS
             accessor: 'orgCode', // accessor is the "key" in the data
         },
         {
-            Header: 'orgTranslationShort',
+            Header: 'OrgTranslationShort',
             accessor: 'orgTranslationShort',
         },
         {
-            Header: 'orgTranslation',
+            Header: 'OrgTranslation',
             accessor: 'orgTranslation',
         },
         {
-            Header: 'inactive',
-            accessor: 'inactive',
+            Header: 'Inactive',
+            id: 'inactive',
+            accessor: <span class="fstat-no" title="function not covered" >ro</span>w =&gt; <span class="cstat-no" title="statement not covered" >String(row.inactive)</span>
         }
     ];
 &nbsp;
@@ -233,7 +230,7 @@ export default function <span class="fstat-no" title="function not covered" >UCS
     } 
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return &lt;OurTable</span>
-        data={orgs}
+        data={organizations}
         columns={columns}
         testid={"UCSBOrganizationTable"}
     /&gt;;
@@ -244,7 +241,7 @@ export default function <span class="fstat-no" title="function not covered" >UCS
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Wed Nov 08 2023 20:05:10 GMT-0800 (Pacific Standard Time)
+                at Wed Nov 08 2023 21:35:54 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
