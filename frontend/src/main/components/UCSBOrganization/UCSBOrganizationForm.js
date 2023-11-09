@@ -1,10 +1,9 @@
-import { Button, Form } from 'react-bootstrap';
+import { Button, Form, Row, Col } from 'react-bootstrap';
 import { useForm } from 'react-hook-form'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
-    
     // Stryker disable all
     const {
         register,
@@ -14,96 +13,122 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
         { defaultValues: initialContents || {}, }
     );
     // Stryker restore all
-   
+
     const navigate = useNavigate();
 
-    const testIdPrefix = "UCSBOrganizationForm";
+    // For explanation, see: https://stackoverflow.com/questions/3143070/javascript-regex-iso-datetime
+    // Note that even this complex regex may still need some tweaks
+
+    const boolean = /(true|false)/i;
+
+    // Stryker disable next-line all
 
     return (
+
         <Form onSubmit={handleSubmit(submitAction)}>
 
+
+            <Row>
             
-            <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgCode">orgCode</Form.Label>
-                <Form.Control
-                    data-testid={testIdPrefix + "-orgCode"}
-                    id="orgCode"
-                    type="text"
-                    isInvalid={Boolean(errors.orgCode)}
-                    {...register("orgCode", {
-                        required: "orgCode is required.",
-                    })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.orgCode?.message}
-                </Form.Control.Feedback>
-            </Form.Group>
+                <Col>
+                    <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="orgCode">orgCode</Form.Label>
+                        <Form.Control
+                            data-testid="UCSBOrganizationForm-orgCode"
+                            id="orgCode"
+                            type="text"
+                            isInvalid={Boolean(errors.orgTranslationShort)}
+                            {...register("orgCode",{
+                                required: "orgCode is required."
+                            })}
+                            //value={initialContents.orgCode}
+                            
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.orgCode && 'orgCode is required. '}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                </Col>
+                
 
+                <Col>
+                    <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="orgTranslationShort">orgTranslationShort</Form.Label>
+                        <Form.Control
+                            data-testid="UCSBOrganizationForm-orgTranslationShort"
+                            id="orgTranslationShort"
+                            type="text"
+                            isInvalid={Boolean(errors.orgTranslationShort)}
+                            {...register("orgTranslationShort", {
+                                required: "orgTranslationShort is required."
+                            })}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.orgTranslationShort && 'orgTranslationShort is required. '}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                </Col>
+                <Col>
+                    <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
+                        <Form.Control
+                            data-testid="UCSBOrganizationForm-orgTranslation"
+                            id="orgTranslation"
+                            type="text"
+                            isInvalid={Boolean(errors.orgTranslation)}
+                            {...register("orgTranslation", {
+                                required: "orgTranslation is required."
+                            })}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.orgTranslation && 'orgTranslation is required. '}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                </Col>
+            </Row>
 
-            <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgTranslationShort">orgTranslationShort</Form.Label>
-                <Form.Control
-                    data-testid={testIdPrefix + "-orgTranslationShort"}
-                    id="orgTranslationShort"
-                    type="text"
-                    isInvalid={Boolean(errors.orgTranslationShort)}
-                    {...register("orgTranslationShort", {
-                        required: "orgTranslationShort is required.",
-                    })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.orgTranslationShort?.message}
-                </Form.Control.Feedback>
-            </Form.Group>
+            <Row>
 
-            <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
-                <Form.Control
-                    data-testid={testIdPrefix + "-orgTranslation"}
-                    id="orgTranslation"
-                    type="text"
-                    isInvalid={Boolean(errors.orgTranslation)}
-                    {...register("orgTranslation", {
-                        required: "orgTranslation is required."
-                    })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.orgTranslation?.message}
-                </Form.Control.Feedback>
-            </Form.Group>
-
-            <Form.Group className="mb-3" >
-                <Form.Label htmlFor="inactive">inactive</Form.Label>
-                <Form.Control
-                    data-testid={testIdPrefix + "-inactive"}
-                    id="inactive"
-                    type="text"
-                    isInvalid={Boolean(errors.inactive)}
-                    {...register("inactive", {
-                        required: "inactive is required.", pattern: /(true|false)/i
-                    })}
-                />
-                <Form.Control.Feedback type="invalid">
-                    {errors.inactive?.message} {'boolean required'}
-                </Form.Control.Feedback>
-            </Form.Group>
+                <Col>
 
 
 
-            <Button
-                type="submit"
-                data-testid={testIdPrefix + "-submit"}
-            >
-                {buttonLabel}
-            </Button>
-            <Button
-                variant="Secondary"
-                onClick={() => navigate(-1)}
-                data-testid={testIdPrefix + "-cancel"}
-            >
-                Cancel
-            </Button>
+                    <Form.Group className="mb-3" >
+                        <Form.Label htmlFor="inactive">inactive</Form.Label>
+                        <Form.Control
+                            data-testid="UCSBOrganizationForm-inactive"
+                            id="inactive"
+                            type="text"
+                            isInvalid={Boolean(errors.inactive)}
+                            {...register("inactive", {
+                                required: "inactive is required.",pattern: boolean
+                            })}
+                        />
+                        <Form.Control.Feedback type="invalid">
+                            {errors.inactive?.message && 'inactive is required. '}
+                            {'boolean required'}
+                        </Form.Control.Feedback>
+                    </Form.Group>
+                </Col>
+            </Row>
 
+            <Row>
+                <Col>
+                    <Button
+                        type="submit"
+                        data-testid="UCSBOrganizationForm-submit"
+                    >
+                        {buttonLabel}
+                    </Button>
+                    <Button
+                        variant="Secondary"
+                        onClick={() => navigate(-1)}
+                        data-testid="UCSBOrganizationForm-cancel"
+                    >
+                        Cancel
+                    </Button>
+                </Col>
+            </Row>
         </Form>
 
     )

@@ -6,7 +6,7 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBOrganiz
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function UCSBOrganizationTable({ orgs, currentUser }) {
+export default function UCSBOrganizationTable({ organizations, currentUser }) {
 
     const navigate = useNavigate();
 
@@ -21,11 +21,9 @@ export default function UCSBOrganizationTable({ orgs, currentUser }) {
         { onSuccess: onDeleteSuccess },
         ["/api/ucsborganization/all"]
     );
-    // Stryker restore all 
 
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
-
 
     const columns = [
         {
@@ -33,16 +31,17 @@ export default function UCSBOrganizationTable({ orgs, currentUser }) {
             accessor: 'orgCode', // accessor is the "key" in the data
         },
         {
-            Header: 'orgTranslationShort',
+            Header: 'OrgTranslationShort',
             accessor: 'orgTranslationShort',
         },
         {
-            Header: 'orgTranslation',
+            Header: 'OrgTranslation',
             accessor: 'orgTranslation',
         },
         {
-            Header: 'inactive',
-            accessor: 'inactive',
+            Header: 'Inactive',
+            id: 'inactive',
+            accessor: row => String(row.inactive)
         }
     ];
 
@@ -52,7 +51,7 @@ export default function UCSBOrganizationTable({ orgs, currentUser }) {
     } 
 
     return <OurTable
-        data={orgs}
+        data={organizations}
         columns={columns}
         testid={"UCSBOrganizationTable"}
     />;
