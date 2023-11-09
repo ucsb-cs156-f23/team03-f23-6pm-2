@@ -3,9 +3,9 @@ const ucsbOrganizationFixtures = {
     [
       {
        "orgCode": "ZPR",
-        "orgTranslationShort": "The Habit",
-        "orgTranslation": "The Habit",
-        "inactive" : true      
+        "orgTranslationShort": "ZETA PHI RHO",
+        "orgTranslation": "ZETA PHI RHO",
+        "inactive" : "true"
       }
     ],
 
@@ -15,21 +15,21 @@ const ucsbOrganizationFixtures = {
             "orgCode": "SKY",
              "orgTranslationShort": "Cristino's Bakery",
              "orgTranslation": "Cristino's Bakery",
-             "inactive" : true,      
+             "inactive" : "true",      
         },
 
         {
             "orgCode": "KRC",
              "orgTranslationShort": "Freebirds",
              "orgTranslation": "Cristino's Bakery",
-             "inactive" : true  
+             "inactive" : "true"  
         },
 
         {
             "orgCode": "NSU",
              "orgTranslationShort": "Ca' Dario Cucina Italiana",
              "orgTranslation": "Cristino's Bakery",
-             "inactive" : true      
+             "inactive" : "true"      
         },
         
     ]
