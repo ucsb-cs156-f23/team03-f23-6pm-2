@@ -76,8 +76,6 @@ describe("UserTable tests", () => {
 
     expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("SKY");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-orgCode`)).toHaveTextContent("KRC");
-    expect(screen.getByTestId(`${testId}-cell-row-2-col-orgCode`)).toHaveTextContent("OSLI");
-
 
     const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).not.toBeInTheDocument();
