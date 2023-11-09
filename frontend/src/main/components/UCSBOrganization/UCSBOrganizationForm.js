@@ -22,33 +22,33 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
 
-            {initialContents && (
-                <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="orgCode">OrgCode</Form.Label>
-                    <Form.Control
-                        data-testid={testIdPrefix + "-orgCode"}
-                        id="orgCode"
-                        type="text"
-                        {...register("orgCode")}
-                        value={initialContents.id}
-                        disabled
-                    />
-                </Form.Group>
-            )}
+            
+            <Form.Group className="mb-3" >
+                <Form.Label htmlFor="orgCode">orgCode</Form.Label>
+                <Form.Control
+                    data-testid={testIdPrefix + "-orgCode"}
+                    id="orgCode"
+                    type="text"
+                    isInvalid={Boolean(errors.orgCode)}
+                    {...register("orgCode", {
+                        required: "orgCode is required.",
+                    })}
+                />
+                <Form.Control.Feedback type="invalid">
+                    {errors.orgCode?.message}
+                </Form.Control.Feedback>
+            </Form.Group>
+
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgTranslationShort">OrgTranslationShort</Form.Label>
+                <Form.Label htmlFor="orgTranslationShort">orgTranslationShort</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgTranslationShort"}
                     id="orgTranslationShort"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslationShort)}
                     {...register("orgTranslationShort", {
-                        required: "OrgTranslationShort is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
+                        required: "orgTranslationShort is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -57,18 +57,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgTranslation">OrgTranslation</Form.Label>
+                <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgTranslation"}
                     id="orgTranslation"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslation)}
                     {...register("orgTranslation", {
-                        required: "OrgTranslation is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
+                        required: "orgTranslation is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -77,26 +73,21 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="inactive">Inactive</Form.Label>
+                <Form.Label htmlFor="inactive">inactive</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-inactive"}
                     id="inactive"
                     type="text"
                     isInvalid={Boolean(errors.inactive)}
                     {...register("inactive", {
-                        required: "Inactive is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
+                        required: "inactive is required.", pattern: /(true|false)/i
                     })}
                 />
-
-
                 <Form.Control.Feedback type="invalid">
-                    {errors.inactive?.message}
+                    {errors.inactive?.message} {'boolean required'}
                 </Form.Control.Feedback>
             </Form.Group>
+
 
 
             <Button
