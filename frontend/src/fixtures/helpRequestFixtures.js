@@ -6,7 +6,7 @@ const helpRequestFixtures = {
         "teamOrBreakoutRoom": "table-1",
         "requestTime": "2021-10-13T12:00:00",
         "explanation": "I need help with team02",
-        "solved": false
+        "solved": "false"
     },
     threeHelpRequest: [
         {
@@ -16,7 +16,7 @@ const helpRequestFixtures = {
             "teamOrBreakoutRoom": "table-1",
             "requestTime": "2021-10-13T12:00:00",
             "explanation": "I need help with team02",
-            "solved": false
+            "solved": "false"
         },
         {
             "id": 2,
@@ -25,7 +25,7 @@ const helpRequestFixtures = {
             "teamOrBreakoutRoom": "table-2",
             "requestTime": "2021-11-13T12:00:00",
             "explanation": "I need help with team03",
-            "solved": false
+            "solved": "false"
         },
         {
             "id": 3,
@@ -34,7 +34,7 @@ const helpRequestFixtures = {
             "teamOrBreakoutRoom": "table-3",
             "requestTime": "2021-12-13T12:00:00",
             "explanation": "I need help with team04",
-            "solved": false
+            "solved": "false"
         }
     ]
 };
