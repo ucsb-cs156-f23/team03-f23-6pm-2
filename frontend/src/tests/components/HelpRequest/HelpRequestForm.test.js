@@ -71,7 +71,7 @@ describe("HelpRequest tests", () => {
 
         await screen.findByText(/solved is required./);
         expect(screen.getByText(/requesterEmail is required./)).toBeInTheDocument();
-        expect(screen.getByText(/team-id is required./)).toBeInTheDocument();
+        expect(screen.getByText(/teamId is required./)).toBeInTheDocument();
         expect(screen.getByText(/teamOrBreakoutRoom is required./)).toBeInTheDocument();
         expect(screen.getByText(/requestTime is required./)).toBeInTheDocument();
         expect(screen.getByText(/explanation is required./)).toBeInTheDocument();
@@ -91,7 +91,7 @@ describe("HelpRequest tests", () => {
         await screen.findByTestId("HelpRequestForm-requesterEmail");
 
         const requesterEmailForm = screen.getByTestId("HelpRequestForm-requesterEmail");
-        const teamIdField = screen.getByTestId("HelpRequestForm-team-id");
+        const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
         const teamOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-teamOrBreakoutRoom");
         const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
         const explanationField = screen.getByTestId("HelpRequestForm-explanation");
@@ -109,7 +109,7 @@ describe("HelpRequest tests", () => {
         await waitFor(() => expect(mockSubmitAction).toHaveBeenCalled());
 
         expect(screen.queryByText(/requesterEmail is required./)).not.toBeInTheDocument();
-        expect(screen.queryByText(/team-id is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/teamId is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/teamOrBreakoutRoom is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/requestTime is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/explanation is required./)).not.toBeInTheDocument();
