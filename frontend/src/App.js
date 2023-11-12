@@ -89,15 +89,15 @@ function App() {
         {
           hasRole(currentUser, "ROLE_USER") && (
             <>
-              <Route exact path="/ucsborganizations" element={<PlaceholderIndexPage />} />
+              <Route exact path="/ucsborganization" element={<PlaceholderIndexPage />} />
             </>
           )
         }
         {
           hasRole(currentUser, "ROLE_ADMIN") && (
             <>
-              <Route exact path="/ucsborganizations/edit/:id" element={<PlaceholderEditPage />} />
-              <Route exact path="/ucsborganizations/create" element={<PlaceholderCreatePage />} />
+              <Route exact path="/ucsborganization/edit/:id" element={<PlaceholderEditPage />} />
+              <Route exact path="/ucsborganization/create" element={<PlaceholderCreatePage />} />
             </>
           )
         }
