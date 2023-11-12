@@ -86,7 +86,22 @@ function App() {
             </>
           )
         }
-         {
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/ucsborganizations" element={<PlaceholderIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/ucsborganizations/edit/:id" element={<PlaceholderEditPage />} />
+              <Route exact path="/ucsborganizations/create" element={<PlaceholderCreatePage />} />
+            </>
+          )
+        }
+        {
           hasRole(currentUser, "ROLE_USER") && (
             <>
               <Route exact path="/placeholder" element={<PlaceholderIndexPage />} />
