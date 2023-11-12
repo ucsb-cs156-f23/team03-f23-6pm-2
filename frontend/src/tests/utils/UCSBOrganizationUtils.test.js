@@ -11,7 +11,7 @@ jest.mock('react-toastify', () => {
     };
 });
 
-describe("ucsbOrganizationUtils", () => {
+describe("UCSBOrganizationUtils", () => {
 
     describe("onDeleteSuccess", () => {
 
