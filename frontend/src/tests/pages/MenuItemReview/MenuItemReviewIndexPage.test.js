@@ -57,7 +57,7 @@ describe("MenuItemReviewIndexPage tests", () => {
             expect(screen.getByText(/Create MenuItemReview/)).toBeInTheDocument();
         });
         const button = screen.getByText(/Create MenuItemReview/);
-        expect(button).toHaveAttribute("href", "/menuitemreviews/create");
+        expect(button).toHaveAttribute("href", "/menuitemreview/create");
         expect(button).toHaveAttribute("style", "float: right;");
     });
 
