@@ -107,7 +107,7 @@ describe("MenuItemReviewCreatePage tests", () => {
 
         // assert - check that the toast was called with the expected message
         expect(mockToast).toBeCalledWith("New menuItemReview Created - id: 3 itemId: 3 stars: 3");
-        expect(mockNavigate).toBeCalledWith({ "to": "/menuitemreviews" });
+        expect(mockNavigate).toBeCalledWith({ "to": "/menuitemreview" });
 
     });
 });
