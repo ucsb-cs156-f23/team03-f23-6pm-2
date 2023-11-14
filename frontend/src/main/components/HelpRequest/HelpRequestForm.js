@@ -64,18 +64,18 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="team-id">team id</Form.Label>
+                        <Form.Label htmlFor="teamId">team id</Form.Label>
                         <Form.Control
-                            data-testid="HelpRequestForm-team-id"
-                            id="team-id"
+                            data-testid="HelpRequestForm-teamId"
+                            id="teamId"
                             type="text"
                             isInvalid={Boolean(errors.name)}
-                            {...register("team-id", {
+                            {...register("teamId", {
                                 required: true
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors["team-id"] && "team-id is required."}
+                            {errors["teamId"] && "teamId is required."}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>
@@ -83,7 +83,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="teamOrBreakoutRoom">teamOrBreakoutRoom</Form.Label>
+                        <Form.Label htmlFor="teamOrBreakoutRoom">Team Or Breakout Room</Form.Label>
                         <Form.Control
                             data-testid="HelpRequestForm-teamOrBreakoutRoom"
                             id="teamOrBreakoutRoom"
@@ -120,7 +120,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="explanation">explanation</Form.Label>
+                        <Form.Label htmlFor="explanation">Explanation</Form.Label>
                         <Form.Control
                             data-testid="HelpRequestForm-explanation"
                             id="explanation"
@@ -140,7 +140,7 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="solved">solved</Form.Label>
+                        <Form.Label htmlFor="solved">Solved</Form.Label>
                         <Form.Control
                             data-testid="HelpRequestForm-solved"
                             id="solved"
