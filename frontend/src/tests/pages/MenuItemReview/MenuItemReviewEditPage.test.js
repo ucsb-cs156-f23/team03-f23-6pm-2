@@ -171,6 +171,7 @@ describe("MenuItemReviewEditPage tests", () => {
             expect(commentsField).toHaveValue("review17");
 
             expect(submitButton).toBeInTheDocument();
+            expect(submitButton).toHaveTextContent("Update");
 
             fireEvent.change(itemIdField, { target: { value: 18 } })
             fireEvent.change(reviewerEmailField, { target: { value: 'reviewer18@ucsb.edu' } })
