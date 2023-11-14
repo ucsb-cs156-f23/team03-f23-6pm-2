@@ -2,19 +2,16 @@ import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
 import { useBackendMutation } from "main/utils/useBackend";
-import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBDiningCommonsMenuItemUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/helpRequestUtils"
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function UCSBDiningCommonsMenuItemTable({
-    ucsbDiningCommonsMenuItem,
-    currentUser,
-    testIdPrefix = "UCSBDiningCommonsMenuItemTable" }) {
+export default function HelpRequestTable({ requests, currentUser }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/diningcommonsmenuitem/edit/${cell.row.values.id}`)
+        navigate(`/helprequests/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -22,42 +19,53 @@ export default function UCSBDiningCommonsMenuItemTable({
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/UCSBDiningCommonsMenuItem/all"]
+        ["/api/helprequests/all"]
     );
     // Stryker restore all 
 
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
 
+
     const columns = [
         {
             Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
-
         {
-            Header: 'Dining Commons Code',
-            accessor: 'diningCommonsCode',
+            Header: 'Email',
+            accessor: 'requesterEmail',
         },
         {
-            Header: 'Name',
-            accessor: 'name',
+            Header: 'team id',
+            accessor: 'teamId',
         },
         {
-            Header: 'Station',
-            accessor: 'station',
+            Header: 'Team Or Breakout Room',
+            accessor: 'teamOrBreakoutRoom',
+        },
+        {
+            Header: 'Request Time (iso format)',
+            accessor: 'requestTime',
+        },
+        {
+            Header: 'Explanation',
+            accessor: 'explanation',
+        },
+        {
+            Header: 'Solved',
+            accessor: 'solved'
         }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, "HelpRequestTable"));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "HelpRequestTable"));
     } 
 
     return <OurTable
-        data={ucsbDiningCommonsMenuItem}
+        data={requests}
         columns={columns}
-        testid={testIdPrefix}
+        testid={"HelpRequestTable"}
     />;
 };
-
