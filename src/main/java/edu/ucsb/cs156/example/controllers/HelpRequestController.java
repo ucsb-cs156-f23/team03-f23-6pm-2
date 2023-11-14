@@ -109,7 +109,7 @@ public class HelpRequestController extends ApiController {
 
         helpRequest.setRequesterEmail(incoming.getRequesterEmail());
         helpRequest.setTeamId(incoming.getTeamId());
-        helpRequest.settableOrBreakoutRoom(incoming.gettableOrBreakoutRoom());
+        helpRequest.setTableOrBreakoutRoom(incoming.getTableOrBreakoutRoom());
         helpRequest.setRequestTime(incoming.getRequestTime());
         helpRequest.setExplanation(incoming.getExplanation());
         helpRequest.setSolved(incoming.getSolved());
