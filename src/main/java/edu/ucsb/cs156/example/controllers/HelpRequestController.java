@@ -48,7 +48,7 @@ public class HelpRequestController extends ApiController {
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     @PostMapping("/post")
     public HelpRequest postRequest(
-            @Parameter(name="requsterEmail") @RequestParam String requesterEmail,
+            @Parameter(name="requesterEmail") @RequestParam String requesterEmail,
             @Parameter(name="teamId") @RequestParam String teamId,
             @Parameter(name="tableOrBreakoutRoom") @RequestParam String tableOrBreakoutRoom,
             @Parameter(name="requestTime", description="in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601") @RequestParam("requestTime") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
