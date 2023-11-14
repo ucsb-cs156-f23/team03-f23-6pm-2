@@ -58,11 +58,8 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   <Nav.Link as={Link} to="/helprequests">Help Request</Nav.Link>
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
                   <Nav.Link as={Link} to="/diningcommonsmenuitem">UCSB Dining Commons Menu Items</Nav.Link>
-<<<<<<< Updated upstream
                   <Nav.Link as={Link} to="/menuitemreview">MenuItemReview</Nav.Link>
-=======
                   <Nav.Link as={Link} to="/ucsborganization">UCSB Organizations</Nav.Link>
->>>>>>> Stashed changes
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
                 </>
               )
