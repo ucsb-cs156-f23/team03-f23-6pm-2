@@ -48,7 +48,7 @@ import java.time.LocalDateTime;
     @PreAuthorize(&quot;hasRole('ROLE_ADMIN')&quot;)
     @PostMapping(&quot;/post&quot;)
     public HelpRequest postRequest(
-            @Parameter(name=&quot;requsterEmail&quot;) @RequestParam String requesterEmail,
+            @Parameter(name=&quot;requesterEmail&quot;) @RequestParam String requesterEmail,
             @Parameter(name=&quot;teamId&quot;) @RequestParam String teamId,
             @Parameter(name=&quot;tableOrBreakoutRoom&quot;) @RequestParam String tableOrBreakoutRoom,
             @Parameter(name=&quot;requestTime&quot;, description=&quot;in iso format, e.g. YYYY-mm-ddTHH:MM:SS; see https://en.wikipedia.org/wiki/ISO_8601&quot;) @RequestParam(&quot;requestTime&quot;) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime requestTime,
