@@ -52,7 +52,7 @@ describe("MenuItemReviewCreatePage tests", () => {
         );
     });
 
-    test("on submit, makes request to backend, and redirects to /menuitemreviews", async () => {
+    test("on submit, makes request to backend, and redirects to /menuitemreview", async () => {
 
         const queryClient = new QueryClient();
         const menuItemReview = {
