@@ -171,7 +171,7 @@ describe("UCSBOrganizationEditPage tests", () => {
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("UCSBOrganization Updated - orgCode: ZPR orgTranslationShort: ZETA PHI R orgTranslation: ZETA PHI R inactive: false");
+            expect(mockToast).toBeCalledWith("UCSBOrganization Updated - orgCode: ZPR orgTranslationShort: ZETA PHI PHI orgTranslation: ZETA PHI PHI inactive: false");
             expect(mockNavigate).toBeCalledWith({ "to": "/ucsborganization" });
         });
 
