@@ -80,8 +80,8 @@ describe("UCSBOrganizationEditPage tests", () => {
             });
             axiosMock.onPut('/api/ucsborganization').reply(200, {
                 orgCode : "ZPR",
-                orgTranslationShort : "ZETA PHI R",
-                orgTranslation : "ZETA PHI R",
+                orgTranslationShort : "ZETA PHI PHI",
+                orgTranslation : "ZETA PHI PHI",
                 inactive : "false"
             });
         });
