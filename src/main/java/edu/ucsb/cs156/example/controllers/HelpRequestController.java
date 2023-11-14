@@ -64,7 +64,7 @@ public class HelpRequestController extends ApiController {
         HelpRequest helpRequest = new HelpRequest();
         helpRequest.setRequesterEmail(requesterEmail);
         helpRequest.setTeamId(teamId);
-        helpRequest.setTeamOrBreakoutRoom(tableOrBreakoutRoom);
+        helpRequest.setTableOrBreakoutRoom(tableOrBreakoutRoom);
         helpRequest.setRequestTime(requestTime);
         helpRequest.setExplanation(explanation);
         helpRequest.setSolved(solved);
@@ -109,7 +109,7 @@ public class HelpRequestController extends ApiController {
 
         helpRequest.setRequesterEmail(incoming.getRequesterEmail());
         helpRequest.setTeamId(incoming.getTeamId());
-        helpRequest.setTeamOrBreakoutRoom(incoming.getTeamOrBreakoutRoom());
+        helpRequest.settableOrBreakoutRoom(incoming.gettableOrBreakoutRoom());
         helpRequest.setRequestTime(incoming.getRequestTime());
         helpRequest.setExplanation(incoming.getExplanation());
         helpRequest.setSolved(incoming.getSolved());
