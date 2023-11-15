@@ -41,8 +41,8 @@ export default function HelpRequestTable({ requests, currentUser }) {
             accessor: 'teamId',
         },
         {
-            Header: 'Team Or Breakout Room',
-            accessor: 'teamOrBreakoutRoom',
+            Header: 'Table Or Breakout Room',
+            accessor: 'tableOrBreakoutRoom',
         },
         {
             Header: 'Request Time (iso format)',

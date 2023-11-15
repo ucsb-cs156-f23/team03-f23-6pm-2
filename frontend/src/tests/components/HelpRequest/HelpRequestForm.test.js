@@ -72,7 +72,7 @@ describe("HelpRequest tests", () => {
         await screen.findByText(/solved is required./);
         expect(screen.getByText(/requesterEmail is required./)).toBeInTheDocument();
         expect(screen.getByText(/teamId is required./)).toBeInTheDocument();
-        expect(screen.getByText(/teamOrBreakoutRoom is required./)).toBeInTheDocument();
+        expect(screen.getByText(/tableOrBreakoutRoom is required./)).toBeInTheDocument();
         expect(screen.getByText(/requestTime is required./)).toBeInTheDocument();
         expect(screen.getByText(/explanation is required./)).toBeInTheDocument();
 
@@ -92,7 +92,7 @@ describe("HelpRequest tests", () => {
 
         const requesterEmailForm = screen.getByTestId("HelpRequestForm-requesterEmail");
         const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-        const teamOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-teamOrBreakoutRoom");
+        const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
         const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
         const explanationField = screen.getByTestId("HelpRequestForm-explanation");
         const solvedField = screen.getByTestId("HelpRequestForm-solved");
@@ -100,7 +100,7 @@ describe("HelpRequest tests", () => {
 
         fireEvent.change(requesterEmailForm, { target: { value: '20221' } });
         fireEvent.change(teamIdField, { target: { value: 'team-3' } });
-        fireEvent.change(teamOrBreakoutRoomField, { target: { value: 'table-2' } });
+        fireEvent.change(tableOrBreakoutRoomField, { target: { value: 'table-2' } });
         fireEvent.change(requestTimeField, { target: { value: '2022-01-02T12:00' } });
         fireEvent.change(explanationField, { target: { value: 'I need help with team-03.' } });
         fireEvent.change(solvedField, { target: { value: false } });
@@ -110,7 +110,7 @@ describe("HelpRequest tests", () => {
 
         expect(screen.queryByText(/requesterEmail is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/teamId is required./)).not.toBeInTheDocument();
-        expect(screen.queryByText(/teamOrBreakoutRoom is required./)).not.toBeInTheDocument();
+        expect(screen.queryByText(/tableOrBreakoutRoom is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/requestTime is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/explanation is required./)).not.toBeInTheDocument();
         expect(screen.queryByText(/solved is required./)).not.toBeInTheDocument();
