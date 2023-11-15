@@ -52,7 +52,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                             id="dateAdded"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateAdded)}
-                            {...register("dateAdded", { required: true, pattern: isodate_regex })}
+                            {...register("dateAdded", { required: true})}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.dateAdded && 'DateAdded is required. ' && 'DateAdded must be in ISO format'}
@@ -128,8 +128,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                             type="text"
                             isInvalid={Boolean(errors.email)}
                             {...register("email", {
-                                required: "Email is required.",
-                                pattern: email_regex
+                                required: "Email is required."
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
