@@ -18,7 +18,8 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
 
     // Stryker disable next-line Regex
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-    const email_regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
+    
+    //const email_regex = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/
 
     const testIdPrefix = "ArticlesForm";
 
@@ -52,7 +53,7 @@ function ArticlesForm({ initialContents, submitAction, buttonLabel = "Create" })
                             id="dateAdded"
                             type="datetime-local"
                             isInvalid={Boolean(errors.dateAdded)}
-                            {...register("dateAdded", { required: true})}
+                            {...register("dateAdded", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
                             {errors.dateAdded && 'DateAdded is required. ' && 'DateAdded must be in ISO format'}
