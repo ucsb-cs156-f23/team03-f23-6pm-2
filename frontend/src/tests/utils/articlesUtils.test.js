@@ -36,7 +36,7 @@ describe("articlesUtils", () => {
 
         test("It returns the correct params", () => {
             // arrange
-            const cell = { row: { values: { id: 17 } } };
+            const cell = { row: { values: { id: 15 } } };
 
             // act
             const result = cellToAxiosParamsDelete(cell);
@@ -45,7 +45,7 @@ describe("articlesUtils", () => {
             expect(result).toEqual({
                 url: "/api/articles",
                 method: "DELETE",
-                params: { id: 17 }
+                params: { id: 15 }
             });
         });
 

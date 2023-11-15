@@ -77,19 +77,19 @@ describe("ArticlesEditPage tests", () => {
             axiosMock.onGet("/api/systemInfo").reply(200, systemInfoFixtures.showingNeither);
             axiosMock.onGet("/api/articles", { params: { id: 17 } }).reply(200, {
                 id: 17,
-                title: "lolxd",
-                url: "https://www.google.com/maps",
-                explanation: "what a fantastic explanation",
-                email: "fakeemail@ucsb.edu",
-                dateAdded: "2022-03-14T15:00"
+                title: "titleVal",
+                url: "https://www.google.com/",
+                explanation: "google site",
+                email: "vedant@ucsb.edu",
+                dateAdded: "2002-12-06T15:00"
             });
             axiosMock.onPut('/api/articles').reply(200, {
                 id: "17",
-                title: "second wind",
-                url: "https://www.yahoo.com/images",
-                explanation: "horrible explanation",
-                email: "realemail@ucsb.edu",
-                dateAdded: "1999-10-14T11:11"
+                title: "yeet",
+                url: "https://www.instagram.com/",
+                explanation: "yeet site",
+                email: "yeet@ucsb.edu",
+                dateAdded: "2011-11-11T11:11"
             });
         });
 
@@ -125,11 +125,11 @@ describe("ArticlesEditPage tests", () => {
             const submitButton = screen.getByTestId("ArticlesForm-submit");
 
             expect(idField).toHaveValue("17");
-            expect(titleField).toHaveValue("lolxd");
-            expect(urlField).toHaveValue("https://www.google.com/maps");
-            expect(explanationField).toHaveValue("what a fantastic explanation");
-            expect(emailField).toHaveValue("fakeemail@ucsb.edu");
-            expect(dateAddedField).toHaveValue("2022-03-14T15:00");
+            expect(titleField).toHaveValue("titleVal");
+            expect(urlField).toHaveValue("https://www.google.com/");
+            expect(explanationField).toHaveValue("google site");
+            expect(emailField).toHaveValue("vedant@ucsb.edu");
+            expect(dateAddedField).toHaveValue("2002-12-06T15:00");
             expect(submitButton).toBeInTheDocument();
         });
 
@@ -155,33 +155,33 @@ describe("ArticlesEditPage tests", () => {
 
 
             expect(idField).toHaveValue("17");
-            expect(titleField).toHaveValue("lolxd");
-            expect(urlField).toHaveValue("https://www.google.com/maps");
-            expect(explanationField).toHaveValue("what a fantastic explanation");
-            expect(emailField).toHaveValue("fakeemail@ucsb.edu");
-            expect(dateAddedField).toHaveValue("2022-03-14T15:00");
+            expect(titleField).toHaveValue("titleVal");
+            expect(urlField).toHaveValue("https://www.google.com/");
+            expect(explanationField).toHaveValue("google site");
+            expect(emailField).toHaveValue("vedant@ucsb.edu");
+            expect(dateAddedField).toHaveValue("2002-12-06T15:00");
             expect(submitButton).toBeInTheDocument();
 
-            fireEvent.change(titleField, { target: { value: 'second wind' } })
-            fireEvent.change(urlField, { target: { value: 'https://www.yahoo.com/images' } })
-            fireEvent.change(explanationField, { target: { value: 'horrible explanation' } })
-            fireEvent.change(emailField, { target: { value: 'realemail@ucsb.edu' } })
-            fireEvent.change(dateAddedField, { target: { value: "1999-10-14T11:11" } })
+            fireEvent.change(titleField, { target: { value: 'yeet' } })
+            fireEvent.change(urlField, { target: { value: 'https://www.instagram.com/' } })
+            fireEvent.change(explanationField, { target: { value: 'yeet site' } })
+            fireEvent.change(emailField, { target: { value: 'yeet@ucsb.edu' } })
+            fireEvent.change(dateAddedField, { target: { value: "2011-11-11T11:11" } })
 
             fireEvent.click(submitButton);
 
             await waitFor(() => expect(mockToast).toBeCalled());
-            expect(mockToast).toBeCalledWith("Article Updated - id: 17 title: second wind");
+            expect(mockToast).toBeCalledWith("Article Updated - id: 17 title: yeet");
             expect(mockNavigate).toBeCalledWith({ "to": "/articles" });
 
             expect(axiosMock.history.put.length).toBe(1); // times called
             expect(axiosMock.history.put[0].params).toEqual({ id: 17 });
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
-                title: "second wind",
-                url: "https://www.yahoo.com/images",
-                explanation: "horrible explanation",
-                email: "realemail@ucsb.edu",
-                dateAdded: "1999-10-14T11:11"
+                title: "yeet",
+                url: "https://www.instagram.com/",
+                explanation: "yeet site",
+                email: "yeet@ucsb.edu",
+                dateAdded: "2011-11-11T11:11"
             })); // posted object
 
         });
