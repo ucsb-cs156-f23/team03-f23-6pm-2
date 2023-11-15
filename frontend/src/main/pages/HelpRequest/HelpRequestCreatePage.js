@@ -12,7 +12,7 @@ export default function HelpRequestCreatePage({storybook=false}) {
     params: {
       requesterEmail: helprequest.requesterEmail,
       teamId: helprequest.teamId,
-      teamOrBreakoutRoom: helprequest.teamOrBreakoutRoom,
+      tableOrBreakoutRoom: helprequest.tableOrBreakoutRoom,
       requestTime: helprequest.requestTime,
       explanation: helprequest.explanation,
       solved: helprequest.solved

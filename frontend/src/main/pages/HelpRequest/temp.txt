@@ -1,0 +1,2 @@
+https://team03-qa.dokku-06.cs.ucsb.edu/api/helprequests/post?requesterEmail=sparklyjeff%40gmail.com&teamId=1&tableOrBreakoutRoom=table-2&requestTime=2023-11-02T15:40&explanation=i+need+help&solved=false
+https://team03-qa.dokku-06.cs.ucsb.edu/api/helprequests/post?requesterEmail=jgaucho%40gmail.com&teamId=12&tableOrBreakoutRoom=12&requestTime=2023-11-02T15%3A39&explanation=12&solved=true

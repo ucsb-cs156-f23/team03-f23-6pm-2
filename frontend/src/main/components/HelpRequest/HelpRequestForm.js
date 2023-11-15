@@ -83,18 +83,18 @@ function HelpRequestForm({ initialContents, submitAction, buttonLabel = "Create"
             <Row>
                 <Col>
                     <Form.Group className="mb-3" >
-                        <Form.Label htmlFor="teamOrBreakoutRoom">Team Or Breakout Room</Form.Label>
+                        <Form.Label htmlFor="tableOrBreakoutRoom">Table Or Breakout Room</Form.Label>
                         <Form.Control
-                            data-testid="HelpRequestForm-teamOrBreakoutRoom"
-                            id="teamOrBreakoutRoom"
+                            data-testid="HelpRequestForm-tableOrBreakoutRoom"
+                            id="tableOrBreakoutRoom"
                             type="text"
                             isInvalid={Boolean(errors.name)}
-                            {...register("teamOrBreakoutRoom", {
+                            {...register("tableOrBreakoutRoom", {
                                 required: true
                             })}
                         />
                         <Form.Control.Feedback type="invalid">
-                            {errors.teamOrBreakoutRoom && "teamOrBreakoutRoom is required."}
+                            {errors.tableOrBreakoutRoom && "tableOrBreakoutRoom is required."}
                         </Form.Control.Feedback>
                     </Form.Group>
                 </Col>

@@ -77,7 +77,7 @@ describe("HelpRequestEditPage tests", () => {
                 id: 17,
                 requesterEmail: "jgaucho@ucsb.edu",
                 teamId: "team-1",
-                teamOrBreakoutRoom: "table-1",
+                tableOrBreakoutRoom: "table-1",
                 requestTime: "2021-10-13T12:00:00",
                 explanation: "I need help with team02",
                 solved: false
@@ -86,7 +86,7 @@ describe("HelpRequestEditPage tests", () => {
                 id: "17",
                 requesterEmail: "jgaucho@ucsb.edu",
                 teamId: "team-1",
-                teamOrBreakoutRoom: "table-1",
+                tableOrBreakoutRoom: "table-1",
                 requestTime: "2021-10-13T12:00:00",
                 explanation: "I need help with team02",
                 solved: "false"
@@ -110,7 +110,7 @@ describe("HelpRequestEditPage tests", () => {
             const idField = screen.getByTestId("HelpRequestForm-id");
             const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
             const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-            const teamOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-teamOrBreakoutRoom");
+            const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
             const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
             const explanationField = screen.getByTestId("HelpRequestForm-explanation");
             const solvedField = screen.getByTestId("HelpRequestForm-solved");
@@ -122,8 +122,8 @@ describe("HelpRequestEditPage tests", () => {
             expect(requesterEmailField).toHaveValue("jgaucho@ucsb.edu");
             expect(teamIdField).toBeInTheDocument();
             expect(teamIdField).toHaveValue("team-1");
-            expect(teamOrBreakoutRoomField).toBeInTheDocument();
-            expect(teamOrBreakoutRoomField).toHaveValue("table-1");
+            expect(tableOrBreakoutRoomField).toBeInTheDocument();
+            expect(tableOrBreakoutRoomField).toHaveValue("table-1");
             expect(requestTimeField).toBeInTheDocument();
             expect(requestTimeField).toHaveValue("2021-10-13T12:00");
             expect(explanationField).toBeInTheDocument();
@@ -135,7 +135,7 @@ describe("HelpRequestEditPage tests", () => {
 
             fireEvent.change(requesterEmailField, { target: { value: 'jgaucho1@ucsb.edu' } });
             fireEvent.change(teamIdField, { target: { value: 'team-2' } });
-            fireEvent.change(teamOrBreakoutRoomField, { target: { value: 'table-2' } });
+            fireEvent.change(tableOrBreakoutRoomField, { target: { value: 'table-2' } });
             fireEvent.change(requestTimeField, { target: { value: '2021-11-13T12:00:00' } });
             fireEvent.change(explanationField, { target: { value: 'I need help with team03' } });
             fireEvent.change(solvedField, { target: { value: 'true' } });
@@ -151,7 +151,7 @@ describe("HelpRequestEditPage tests", () => {
             expect(axiosMock.history.put[0].data).toBe(JSON.stringify({
                 requesterEmail: "jgaucho1@ucsb.edu",
                 teamId: "team-2",
-                teamOrBreakoutRoom: "table-2",
+                tableOrBreakoutRoom: "table-2",
                 requestTime: "2021-11-13T12:00",
                 explanation: "I need help with team03",
                 solved: "true"
@@ -175,7 +175,7 @@ describe("HelpRequestEditPage tests", () => {
             const idField = screen.getByTestId("HelpRequestForm-id");
             const requesterEmailField = screen.getByTestId("HelpRequestForm-requesterEmail");
             const teamIdField = screen.getByTestId("HelpRequestForm-teamId");
-            const teamOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-teamOrBreakoutRoom");
+            const tableOrBreakoutRoomField = screen.getByTestId("HelpRequestForm-tableOrBreakoutRoom");
             const requestTimeField = screen.getByTestId("HelpRequestForm-requestTime");
             const explanationField = screen.getByTestId("HelpRequestForm-explanation");
             const solvedField = screen.getByTestId("HelpRequestForm-solved");
@@ -184,14 +184,14 @@ describe("HelpRequestEditPage tests", () => {
             expect(idField).toHaveValue("17");
             expect(requesterEmailField).toHaveValue("jgaucho@ucsb.edu");
             expect(teamIdField).toHaveValue("team-1");
-            expect(teamOrBreakoutRoomField).toHaveValue("table-1");
+            expect(tableOrBreakoutRoomField).toHaveValue("table-1");
             expect(requestTimeField).toHaveValue("2021-10-13T12:00");
             expect(explanationField).toHaveValue("I need help with team02");
             expect(solvedField).toHaveValue("false");
 
             fireEvent.change(requesterEmailField, { target: { value: 'jgaucho1@ucsb.edu' } });
             fireEvent.change(teamIdField, { target: { value: 'team-2' } });
-            fireEvent.change(teamOrBreakoutRoomField, { target: { value: 'table-2' } });
+            fireEvent.change(tableOrBreakoutRoomField, { target: { value: 'table-2' } });
             fireEvent.change(requestTimeField, { target: { value: '2021-11-13T12:00:00' } });
             fireEvent.change(explanationField, { target: { value: 'I need help with team03' } });
             fireEvent.change(solvedField, { target: { value: 'true' } });
