@@ -14,7 +14,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
             [`/api/ucsborganization?orgCode=${orgCode}`],
             {  // Stryker disable next-line all : GET is the default, so mutating this to "" doesn't introduce a bug
                 method: "GET",
-                url: `/api/ucsborganization/all`,
+                url: `/api/ucsborganization`,
                 params: {
                     orgCode
                 }
@@ -22,7 +22,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
         );
 
     const objectToAxiosPutParams = (ucsborganization) => ({
-        url: "/api/ucsborganization/all",
+        url: "/api/ucsborganization",
         method: "PUT",
         params: {
             orgCode: ucsborganization.orgCode,
@@ -43,7 +43,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
         objectToAxiosPutParams,
         { onSuccess },
         // Stryker disable next-line all : hard to set up test for caching
-        [`/api/ucsborganization/all?orgCode=${orgCode}`]
+        [`/api/ucsborganization?orgCode=${orgCode}`]
     );
 
     const { isSuccess } = mutation
