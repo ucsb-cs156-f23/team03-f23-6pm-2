@@ -29,8 +29,8 @@ describe("UserTable tests", () => {
 
     );
 
-    const expectedHeaders = ["id", "Email", "team id", "Team Or Breakout Room", "Request Time (iso format)", "Explanation", "Solved"];
-    const expectedFields = ["id", "requesterEmail", "teamId", "teamOrBreakoutRoom", "requestTime", "explanation", "solved"];
+    const expectedHeaders = ["id", "Email", "team id", "Table Or Breakout Room", "Request Time (iso format)", "Explanation", "Solved"];
+    const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
     const testId = "HelpRequestTable";
 
     expectedHeaders.forEach((headerText) => {
@@ -67,8 +67,8 @@ describe("UserTable tests", () => {
 
     );
 
-    const expectedHeaders = ["id", "Email", "team id", "Team Or Breakout Room", "Request Time (iso format)", "Explanation", "Solved"];
-    const expectedFields = ["id", "requesterEmail", "teamId", "teamOrBreakoutRoom", "requestTime", "explanation", "solved"];
+    const expectedHeaders = ["id", "Email", "team id", "Table Or Breakout Room", "Request Time (iso format)", "Explanation", "Solved"];
+    const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
     const testId = "HelpRequestTable";
 
     expectedHeaders.forEach((headerText) => {

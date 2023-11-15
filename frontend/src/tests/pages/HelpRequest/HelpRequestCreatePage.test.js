@@ -59,8 +59,8 @@ describe("HelpRequestCreatePage tests", () => {
             id: 1,
             requesterEmail: "jgaucho@ucsb.edu",
             teamId: "1",
-            teamOrBreakoutRoom: "team2",
-            requestTime: "2021-03-10T00:00:00.000Z",
+            tableOrBreakoutRoom: "team2",
+            requestTime: "2021-03-10T00:00",
             explanation: "I need help",
             solved: false
         };
@@ -85,8 +85,8 @@ describe("HelpRequestCreatePage tests", () => {
         const teamIdInput = screen.getByLabelText("team id");
         expect(teamIdInput).toBeInTheDocument();
 
-        const teamOrBreakoutRoomInput = screen.getByLabelText("Team Or Breakout Room");
-        expect(teamOrBreakoutRoomInput).toBeInTheDocument();
+        const tableOrBreakoutRoomInput = screen.getByLabelText("Table Or Breakout Room");
+        expect(tableOrBreakoutRoomInput).toBeInTheDocument();
 
         const requestTimeInput = screen.getByLabelText("Request Time (iso format)");
         expect(requestTimeInput).toBeInTheDocument();
@@ -102,7 +102,7 @@ describe("HelpRequestCreatePage tests", () => {
 
         fireEvent.change(requesterEmailInput, { target: { value: 'jgaucho1@ucsb.edu' } })
         fireEvent.change(teamIdInput, { target: { value: 'team-2' } })
-        fireEvent.change(teamOrBreakoutRoomInput, { target: { value: '3' } })
+        fireEvent.change(tableOrBreakoutRoomInput, { target: { value: '3' } })
         fireEvent.change(requestTimeInput, { target: { value: '2021-11-13T12:00' } })
         fireEvent.change(explanationInput, { target: { value: 'I need help.' } })
         fireEvent.change(solvedInput, { target: { value: 'true' } })
@@ -113,7 +113,7 @@ describe("HelpRequestCreatePage tests", () => {
         expect(axiosMock.history.post[0].params).toEqual({
             requesterEmail: "jgaucho1@ucsb.edu",
             teamId: "team-2",
-            teamOrBreakoutRoom: "3",
+            tableOrBreakoutRoom: "3",
             requestTime: "2021-11-13T12:00",
             explanation: "I need help.",
             solved: "true"
