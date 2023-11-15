@@ -22,7 +22,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
         );
 
     const objectToAxiosPutParams = (ucsborganization) => ({
-        url: "/api/ucsborganization",
+        url: "/api/ucsborganization/all",
         method: "PUT",
         params: {
             orgCode: ucsborganization.orgCode,
@@ -43,7 +43,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
         objectToAxiosPutParams,
         { onSuccess },
         // Stryker disable next-line all : hard to set up test for caching
-        [`/api/ucsborganization?orgCode=${orgCode}`]
+        [`/api/ucsborganization/all?orgCode=${orgCode}`]
     );
 
     const { isSuccess } = mutation
