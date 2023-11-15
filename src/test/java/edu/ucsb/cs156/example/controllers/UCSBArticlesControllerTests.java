@@ -47,13 +47,13 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
     
     @Test
     public void logged_out_users_cannot_get_all() throws Exception {
-        mockMvc.perform(get("/api/ucsbarticles/all")).andExpect(status().is(403)); // logged out users can't get all
+        mockMvc.perform(get("/api/articles/all")).andExpect(status().is(403)); // logged out users can't get all
     }
 
     @WithMockUser(roles = { "USER" })
     @Test
     public void logged_in_users_can_get_all() throws Exception {
-        mockMvc.perform(get("/api/ucsbarticles/all"))
+        mockMvc.perform(get("/api/articles/all"))
                         .andExpect(status().is(200)); // logged
     }
 
@@ -88,7 +88,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
             when(ucsbArticlesRepository.findAll()).thenReturn(exceptedUcsbArticles);
 
             // act
-            MvcResult response = mockMvc.perform(get("/api/ucsbarticles/all"))
+            MvcResult response = mockMvc.perform(get("/api/articles/all"))
                             .andExpect(status().isOk()).andReturn();
 
             // assert
@@ -103,14 +103,14 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
 
     @Test
     public void logged_out_users_cannot_post() throws Exception {
-            mockMvc.perform(post("/api/ucsbarticles/post"))
+            mockMvc.perform(post("/api/articles/post"))
                             .andExpect(status().is(403));
     }
 
     @WithMockUser(roles = { "USER" })
     @Test
     public void logged_in_regular_users_cannot_post() throws Exception {
-            mockMvc.perform(post("/api/ucsbarticles/post"))
+            mockMvc.perform(post("/api/articles/post"))
                             .andExpect(status().is(403)); // only admins can post
     }
 
@@ -133,7 +133,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
 
             // act
             MvcResult response = mockMvc.perform(
-                            post("/api/ucsbarticles/post?title=UCSB&url=https://www.ucsb.edu/&explanation=UCSB Website&email=omar@ucsb.edu&dateAdded=2022-01-03T00:00:00")
+                            post("/api/articles/post?title=UCSB&url=https://www.ucsb.edu/&explanation=UCSB Website&email=omar@ucsb.edu&dateAdded=2022-01-03T00:00:00")
                                             .with(csrf()))
                             .andExpect(status().isOk()).andReturn();
 
@@ -148,7 +148,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
 
     @Test
     public void logged_out_users_cannot_get_by_id() throws Exception {
-            mockMvc.perform(get("/api/ucsbarticles?id=7"))
+            mockMvc.perform(get("/api/articles?id=7"))
                             .andExpect(status().is(403)); // logged out users can't get by id
     }
 
@@ -170,7 +170,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
         when(ucsbArticlesRepository.findById(eq(7L))).thenReturn(Optional.of(ucsbArticles1));
 
         // act
-        MvcResult response = mockMvc.perform(get("/api/ucsbarticles?id=7"))
+        MvcResult response = mockMvc.perform(get("/api/articles?id=7"))
                         .andExpect(status().isOk()).andReturn();
 
         // assert
@@ -190,7 +190,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
                 when(ucsbArticlesRepository.findById(eq(7L))).thenReturn(Optional.empty());
 
                 // act
-                MvcResult response = mockMvc.perform(get("/api/ucsbarticles?id=7"))
+                MvcResult response = mockMvc.perform(get("/api/articles?id=7"))
                                 .andExpect(status().isNotFound()).andReturn();
 
                 // assert
@@ -221,7 +221,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                delete("/api/ucsbarticles?id=15")
+                                delete("/api/articles?id=15")
                                                 .with(csrf()))
                                 .andExpect(status().isOk()).andReturn();
 
@@ -243,7 +243,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                delete("/api/ucsbarticles?id=15")
+                                delete("/api/articles?id=15")
                                                 .with(csrf()))
                                 .andExpect(status().isNotFound()).andReturn();
 
@@ -254,7 +254,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
         }
 
 
-        // Tests for PUT /api/ucsbarticles?id=... 
+        // Tests for PUT /api/articles?id=... 
 
         @WithMockUser(roles = { "ADMIN", "USER" })
         @Test
@@ -287,7 +287,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                put("/api/ucsbarticles?id=67")
+                                put("/api/articles?id=67")
                                                 .contentType(MediaType.APPLICATION_JSON)
                                                 .characterEncoding("utf-8")
                                                 .content(requestBody)
@@ -323,7 +323,7 @@ public class UCSBArticlesControllerTests extends ControllerTestCase {
 
                 // act
                 MvcResult response = mockMvc.perform(
-                                put("/api/ucsbarticles?id=67")
+                                put("/api/articles?id=67")
                                                 .contentType(MediaType.APPLICATION_JSON)
                                                 .characterEncoding("utf-8")
                                                 .content(requestBody)
