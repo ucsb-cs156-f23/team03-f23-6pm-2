@@ -61,7 +61,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
             <div className="pt-2">
                 <h1>Edit UCSBOrganization</h1>
                 {
-                    ucsborganization && <UCSBOrganizationForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={ucsborganization} />
+                    ucsborganization && <UCSBOrganizationForm submitAction={onSubmit} buttonLabel={"Update"} initialContents={ucsborganization} disabled={"true"}/>
                 }
             </div>
         </BasicLayout>
