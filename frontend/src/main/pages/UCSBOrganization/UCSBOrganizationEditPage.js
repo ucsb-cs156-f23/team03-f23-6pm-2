@@ -14,7 +14,7 @@ export default function UCSBOrganizationEditPage({storybook=false}) {
             [`/api/ucsborganization?orgCode=${orgCode}`],
             {  // Stryker disable next-line all : GET is the default, so mutating this to "" doesn't introduce a bug
                 method: "GET",
-                url: `/api/ucsborganization`,
+                url: `/api/ucsborganization/all`,
                 params: {
                     orgCode
                 }
